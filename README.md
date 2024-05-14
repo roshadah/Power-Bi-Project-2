@@ -13,14 +13,24 @@ Analyze the On-Time delivery  of orders.
 ### Steps followed 
 
 - Step 1: Loaded Northwind trader's data into Power BI Desktop, the dataset is a CSV file.
-- Step 2: Open the power query editor & in the view tab under the Data Preview section, and check the "column distribution", "column quality" & "column profile" options. 
-           The data was fairly clean but  I had to do further transformation and cleaning.
-- Step 3: By default, the profile opened only for 1000 rows so I needed to select "column profiling based on entire dataset".
-- Step 4: It was observed that in none of the columns errors, however, I created my dimension and fact tables from the large dataset.
-- Step 5: The dimension table was divided into 6 i.e. Categories, Customers, employees, orders, products, and shippers while the fact table is order_details.
-- Step 6: A new table was created named Calender table to allow for time intelligence calculation using the Calender = CALENDARAUTO() function.
+- Step 2: Open the power query editor & in the view tab under the Data Preview section, and check the "column 
+  distribution", "column quality" & "column profile" options. 
+  The data was fairly clean but  I had to do further transformation and cleaning.
+- Step 3: By default, the profile opened only for 1000 rows so I needed to select "column profiling based on entire 
+   dataset".
+- Step 4: It was observed that in none of the columns errors, however, I created my dimension and fact tables from the 
+   large dataset.
+- Step 5: The dimension table was divided into 6 i.e. Categories, Customers, employees, orders, products, and shippers 
+   while the fact table is order_details.
+- Step 6: A new table was created named Calender table to allow for time intelligence calculation using the Calender = 
+  CALENDARAUTO() function.
+  -Step 6b. The table was modeled using a star scheme like this
+  <img width="196" alt="Screenshot 2024-05-13 232043" src="https://github.com/roshadah/Power-Bi-Project- 
+   2/assets/98277448/4e48cd40-d4cf-475e-ad7d-9332e9cd11c4">
+
 - Step 7: To aid my visualization and ability to gain insight from the data I calculated columns like (Sales = order_details[unitPrice]*order_details[Quantity]*(1- 
-   order_details[discount]) and measures i.e (Revenue = SUM(order_details[Sales]),(Shipping Cost = SUM(orders[freight]), Shipping Cost MoM% = 
+   order_details[discount]) and measures i.e (Revenue = SUM(order_details[Sales]),(Shipping Cost = SUM(orders[freight]), 
+  Shipping Cost MoM% = 
    VAR CurrentShipAOV = [Shipping Cost]
    VAR PrevShipAOV = CALCULATE(
     [Shipping Cost],
@@ -33,7 +43,8 @@ Analyze the On-Time delivery  of orders.
 - Step 9: Four card visuals Revenue, Average Other Value(AOV), Shipping Cost, On-Time Delivery.
            Using visual Slicer from the pane, basic filtering of April 2015 was used. 
            However, by default, while calculating the average, blank values are ignored.
-- Step 10: A line chart of Revenues and Years was plotted to see the Trends across years. Low and High Point were acknowledged using markers.
+- Step 10: A line chart of Revenues and Years was plotted to see the Trends across years. Low and High Point were 
+  acknowledged using markers.
 - Step 11: The Bar Chart was plotted using On Time Delivery% = DIVIDE(
     COUNTROWS(
         FILTER(orders,orders[shippedDate]<='orders'[requiredDate])),
@@ -43,18 +54,18 @@ Analyze the On-Time delivery  of orders.
 - Step 14: A donut chart of the proportion of Revenue generated to Quantity Sold was added.
 
 
-for creating new measures following DAX expression was written;
-Revenue MoM% =  VAR CurrentMonthRev = [Revenue]
- VAR PreMonthRev = CALCULATE(
+    for creating new measures following DAX expression was written;
+   Revenue MoM% =  VAR CurrentMonthRev = [Revenue]
+   VAR PreMonthRev = CALCULATE(
     [Revenue],
- DATEADD(Calender[Date],-1,MONTH))
+  DATEADD(Calender[Date],-1,MONTH))
 
- RETURN
- DIVIDE(CurrentMonthRev - PreMonthRev,PreMonthRev,0)
+  RETURN
+  DIVIDE(CurrentMonthRev - PreMonthRev,PreMonthRev,0)
 
 
         
-Snap of the new calculated column, calculated Revenue using the DAX Expression Revenue = SUM(order_details[Sales])
+Snap of the new measure, calculated Revenue using the DAX Expression Revenue = SUM(order_details[Sales])
 
 <img width="209" alt="Screenshot 2024-05-13 231921" src="https://github.com/roshadah/Power-Bi-Project-2/assets/98277448/145c8d02-d708-4996-95f9-b229d7a4acab">
 
@@ -63,7 +74,7 @@ Snap of the new calculated column, calculated Revenue using the DAX Expression R
 
 The following DAX expression was written for the same,
         
-        AOV = DIVIDE([Revenue],COUNT(orders[orderID]))
+        Average Other Value = DIVIDE([Revenue],COUNT(orders[orderID]))
         
 
 
