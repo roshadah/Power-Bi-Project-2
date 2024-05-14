@@ -39,19 +39,19 @@ Analyze the On-Time delivery  of orders.
         FILTER(orders,orders[shippedDate]<='orders'[requiredDate])),
         COUNTROWS('orders')) Vs Freight companies.
 - Step 12: A table that includes ProductName, Revenue, and Quantity was plotted.
--Step 13: The top 3 performing products by Revenue were added to see the highest revenue-generating product.
--Step 14: A donut chart of the proportion of Revenue generated to Quantity Sold was added.
+- Step 13: The top 3 performing products by Revenue were added to see the highest revenue-generating product.
+- Step 14: A donut chart of the proportion of Revenue generated to Quantity Sold was added.
+
 
 for creating new measures following DAX expression was written;
-       
-        Revenue MoM% = 
- VAR CurrentMonthRev = [Revenue]
+Revenue MoM% =  VAR CurrentMonthRev = [Revenue]
  VAR PreMonthRev = CALCULATE(
     [Revenue],
  DATEADD(Calender[Date],-1,MONTH))
 
  RETURN
  DIVIDE(CurrentMonthRev - PreMonthRev,PreMonthRev,0)
+
 
         
 Snap of the new calculated column, calculated Revenue using the DAX Expression Revenue = SUM(order_details[Sales])
