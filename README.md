@@ -132,9 +132,12 @@ Assesses delivery company to identify training needs and improve effectiveness.
 Determine popular product categories to guide product offerings and marketing campaigns.
 
 ### Limitations
-Data Quality: The analysis largely depends on the provided dataset's quality and accuracy.
-Scope: The provided dataset may not encompass all relevant factors influencing sales performance.
-Assumptions: Certain assumptions might have been made during the analysis, impacting the validity of conclusions.
-###Conclusion
+#### Data Quality: The analysis largely depends on the provided dataset's quality and accuracy.
+
+##### Scope: The provided dataset may not encompass all relevant factors influencing sales performance.
+
+##### Assumptions: Certain assumptions might have been made during the analysis, impacting the validity of conclusions.
+
+### Conclusion
 By leveraging insights from sales data and implementing strategic recommendations, Northwind Traders can enhance sales performance, improve customer relationships, and drive overall revenue growth. However, it's imperative to acknowledge the limitations inherent in the analysis and continuously refine strategies based on evolving market dynamics.
 
