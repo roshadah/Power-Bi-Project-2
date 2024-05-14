@@ -24,7 +24,8 @@ Analyze the On-Time delivery  of orders.
    while the fact table is order_details.
 - Step 6: A new table was created named Calender table to allow for time intelligence calculation using the Calender = 
   CALENDARAUTO() function.
-  -Step 6b. The table was modeled using a star scheme like this
+  
+-  Step 6b. The table was modeled using a star scheme like this
   <img width="196" alt="Screenshot 2024-05-13 232043" src="https://github.com/roshadah/Power-Bi-Project- 
    2/assets/98277448/4e48cd40-d4cf-475e-ad7d-9332e9cd11c4">
 
