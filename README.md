@@ -5,10 +5,13 @@
 Northwind Traders, a renowned supplier of gourmet foods and beverages, seeks to optimize its sales performance through strategic analysis of its comprehensive sales dataset. This README delineates the challenges faced by Northwind Traders, insights derived from data analysis, recommendations for enhancing customer relationship management (CRM) and sales strategies, and acknowledgment of limitations in the analysis. 
 
 ### Questions
-Calculate Month-over-Month (MoM) and Year-over-Year (YoY) revenue growth percentages.
-Could you determine the difference in the number of customers ordering between last year and this year?
-Calculate the average Other Value between the order and the shipping date.
-Analyze the On-Time delivery  of orders.
+-Calculate Month-over-Month (MoM) and Year-over-Year (YoY) revenue growth percentages.
+
+-Could you determine the difference in the number of customers ordering between last year and this year?
+
+-Calculate the average Other Value between the order and the shipping date.
+
+-Analyze the On-Time delivery  of orders.
 
 ### Steps followed 
 
